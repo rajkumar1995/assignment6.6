@@ -1,0 +1,37 @@
+1. Explain the difference between FIFO and Capacity scheduler
+ 
+
+fifo scheduler :
+                they are placed in queue and runs them in the order of submission 
+                they excecute task in first in first out manner
+                the request of the first application available in the queue are allocated first then the next element wil served and so on
+                the FIFO Scheduler has the merit of being simple to understand and not needing any configuration
+                Large applications will use all the resources in a cluster, so each application has to wait its turn
+
+
+capacity scheduler :
+                   in capacity scheduler the shortest job that is being submitted will start rather than in fifo order
+                   larger job will be given less priority to run hence shorter jobs are excecuted faster
+                   This is at the cost of overall cluster utilization since the queue capacity is reserved for jobs in that queue
+                   if queue is not designed properly then they will be overloaded or underutilized
+
+
+
+2. What are the limitations of hadoop 1.x and how they were overcome in hadoop 2.x
+    
+ hadoop 1.x:
+            job tracker keeps track of resource utilization and job monitoring.
+            it will be suited for 4000 to 40000 tasks only
+            it supports only mapreduce processing model
+            task tracker is configured with static slots
+            it has only single name node
+            name node failure creates problem in hadoop 1.x
+
+hadoop 2.x:
+            resource utilization is taken care by resource manager and node manager
+            it is suited for about 10000 to 100000 task
+            resource are dynamic 
+            it supports other models like processing models alomg with mapreduce
+            it has multiple name node
+            name node failure will not create problem since there are multiple name nodes being available
+
